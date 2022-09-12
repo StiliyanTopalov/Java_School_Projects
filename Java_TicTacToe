@@ -1,0 +1,426 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Proekt3 extends JFrame {
+
+	private JPanel contentPane;
+    static String startgame="X";
+    static int xCount=0;
+    static int oCount=0;
+    static int i =0;
+	static JButton btn;
+    static JButton btn1;
+	static JButton btn2;
+	static JButton btn3;
+	static JButton btn4;
+	static JButton btn5;
+	static JButton btn6;
+	static JButton btn7;
+	static JButton btn8;
+	static JLabel lblNewLabel_2;
+	static JLabel lblNewLabel_3;
+	
+	
+	public static void chosePlayer() {
+		if(startgame.equalsIgnoreCase("X")) {
+			startgame = "O";
+		}else {
+			startgame = "X";
+		}
+	}
+	
+	
+	public static void wingame() {
+		String b1 = btn.getText();
+		String b2 = btn1.getText();
+		String b3 = btn2.getText();
+		String b4 = btn3.getText();
+		String b5 = btn4.getText();
+		String b6 = btn5.getText();
+		String b7 = btn6.getText();
+		String b8 = btn7.getText();
+		String b9 = btn8.getText();
+		if(b1.equals("X") && b2.equals("X") && b3.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b4.equals("X") && b5.equals("X") && b6.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b7.equals("X") && b8.equals("X") && b9.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b1.equals("X") && b4.equals("X") && b7.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b2.equals("X") && b5.equals("X") && b8.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b3.equals("X") && b6.equals("X") && b9.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b1.equals("X") && b5.equals("X") && b9.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b3.equals("X") && b5.equals("X") && b7.equals("X")) {
+			JOptionPane.showMessageDialog(null, "X win");
+			xCount++;
+			lblNewLabel_2.setText(String.valueOf(xCount));
+		}else if(b1.equals("O") && b2.equals("O") && b3.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b4.equals("O") && b5.equals("O") && b6.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b7.equals("O") && b8.equals("O") && b9.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b1.equals("O") && b4.equals("O") && b7.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b2.equals("O") && b5.equals("O") && b8.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b3.equals("O") && b6.equals("O") && b9.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b1.equals("O") && b5.equals("O") && b9.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));
+		}else if(b3.equals("O") && b5.equals("O") && b7.equals("O")) {
+			JOptionPane.showMessageDialog(null, "O win");
+			oCount++;
+			lblNewLabel_3.setText(String.valueOf(oCount));		
+	    }else if(i==9) {
+	    	JOptionPane.showMessageDialog(null, "Draw");
+	    }
+		}
+	
+    	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Proekt3 frame = new Proekt3();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	
+	public Proekt3() {
+		setTitle("TicTacToe");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 595, 370);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		btn = new JButton("");
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btn.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn.setEnabled(false);
+					btn.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn.setEnabled(false);
+					btn.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn.setBounds(38, 52, 89, 71);
+		contentPane.add(btn);
+		
+		
+	    btn1 = new JButton("");
+	    btn1.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		btn1.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn1.setEnabled(false);
+					btn1.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn1.setEnabled(false);
+					btn1.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+	    	}
+	    });
+		btn1.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn1.setBounds(127, 52, 89, 71);
+		contentPane.add(btn1);
+		
+		
+		btn2 = new JButton("");
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn2.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn2.setEnabled(false);
+					btn2.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn2.setEnabled(false);
+					btn2.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn2.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn2.setBounds(215, 52, 89, 71);
+		contentPane.add(btn2);
+		
+		
+		btn3 = new JButton("");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn3.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn3.setEnabled(false);
+					btn3.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn3.setEnabled(false);
+					btn3.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn3.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn3.setBounds(38, 122, 89, 71);
+		contentPane.add(btn3);
+		
+		
+		btn4 = new JButton("");
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn4.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn4.setEnabled(false);
+					btn4.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn4.setEnabled(false);
+					btn4.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn4.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn4.setBounds(127, 122, 89, 71);
+		contentPane.add(btn4);
+		
+		
+		btn5 = new JButton("");
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn5.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn5.setEnabled(false);
+					btn5.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn5.setEnabled(false);
+					btn5.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn5.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn5.setBounds(215, 122, 89, 71);
+		contentPane.add(btn5);
+		
+		
+		btn6 = new JButton("");
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn6.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn6.setEnabled(false);
+					btn6.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn6.setEnabled(false);
+					btn6.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+			}
+		});
+		btn6.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn6.setBounds(38, 192, 89, 71);
+		contentPane.add(btn6);
+		
+		
+		 btn7 = new JButton("");
+		 btn7.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		btn7.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn7.setEnabled(false);
+					btn7.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn7.setEnabled(false);
+					btn7.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+		 	}
+		 });
+		btn7.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn7.setBounds(127, 192, 89, 71);
+		contentPane.add(btn7);
+		
+		
+		 btn8 = new JButton("");
+		 btn8.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		btn8.setText(startgame);
+				if(startgame.equalsIgnoreCase("X")) {
+					btn8.setEnabled(false);
+					btn8.setBackground(Color.CYAN);
+					i++;
+				}else {
+					btn8.setEnabled(false);
+					btn8.setBackground(Color.GREEN);
+					i++;
+				}
+				chosePlayer();
+				wingame();
+		 	}
+		 });
+		btn8.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btn8.setBounds(215, 192, 89, 71);
+		contentPane.add(btn8);
+		
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btn.setText("");
+				btn1.setText("");
+				btn2.setText("");
+				btn3.setText("");
+				btn4.setText("");
+				btn5.setText("");
+				btn6.setText("");
+				btn7.setText("");
+				btn8.setText("");
+				btn.setBackground(btnReset.getBackground());
+				btn1.setBackground(btnReset.getBackground());
+				btn2.setBackground(btnReset.getBackground());
+				btn3.setBackground(btnReset.getBackground());
+				btn4.setBackground(btnReset.getBackground());
+				btn5.setBackground(btnReset.getBackground());
+				btn6.setBackground(btnReset.getBackground());
+				btn7.setBackground(btnReset.getBackground());
+				btn8.setBackground(btnReset.getBackground());
+				btn.setEnabled(true);
+				btn1.setEnabled(true);
+				btn2.setEnabled(true);
+				btn3.setEnabled(true);
+				btn4.setEnabled(true);
+				btn5.setEnabled(true);
+				btn6.setEnabled(true);
+				btn7.setEnabled(true);
+				btn8.setEnabled(true);
+  			    i=0;	
+			}
+		});
+		btnReset.setBounds(130, 301, 89, 23);
+		contentPane.add(btnReset);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		btnExit.setBounds(480, 301, 89, 23);
+		contentPane.add(btnExit);
+		
+		
+		JLabel lblNewLabel = new JLabel("Player 1");
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 20));
+		lblNewLabel.setBounds(314, 69, 122, 39);
+		contentPane.add(lblNewLabel);
+		
+		
+		JLabel lblNewLabel_1 = new JLabel("Player 2");
+		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(317, 159, 107, 23);
+		contentPane.add(lblNewLabel_1);
+		
+		
+		lblNewLabel_2 = new JLabel("Score X");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(481, 67, 66, 39);
+		contentPane.add(lblNewLabel_2);
+		
+		
+		lblNewLabel_3 = new JLabel("Score O");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setBounds(481, 153, 66, 37);
+		contentPane.add(lblNewLabel_3);
+		
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblNewLabel_2.setText("Score X");
+				lblNewLabel_3.setText("Score O");
+			}
+		});
+		btnNewButton.setBounds(469, 122, 89, 23);
+		contentPane.add(btnNewButton);
+	}
+}
