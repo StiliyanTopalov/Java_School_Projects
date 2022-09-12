@@ -1,0 +1,129 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Lihva extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	static JTextArea textArea;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Lihva frame = new Lihva();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Lihva() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 453, 325);
+		contentPane = new JPanel();
+		contentPane.setForeground(new Color(250, 250, 210));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("\u0418\u0437\u0445\u043E\u0434");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnNewButton.setBounds(318, 241, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("\u041F\u0440\u0435\u0441\u043C\u0435\u0442\u043D\u0438");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int month =Integer.parseInt(textField.getText());
+				double capital=Double.parseDouble(textField_1.getText());
+				double lpr=Double.parseDouble(textField_2.getText());
+               
+				String result="Месец     Капитал\n  ";
+				
+				for(int i=1;i<=month;i++) {
+					capital=capital+(0.01*lpr*capital);
+					result+=String.format("%d           %.2f лв.%n",i,capital);
+				} textArea.setText(result);
+			}
+		});
+		btnNewButton_1.setBounds(307, 52, 109, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("\u0418\u0437\u0447\u0438\u0441\u0442\u0438");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textArea.setText("");
+			}
+		});
+		btnNewButton_2.setBounds(318, 86, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel = new JLabel("\u0411\u0440\u043E\u0439 \u043C\u0435\u0441\u0435\u0446\u0438:");
+		lblNewLabel.setBounds(34, 45, 86, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("\u041D\u0430\u0447\u0430\u043B\u043D\u0430 \u0441\u0443\u043C\u0430:");
+		lblNewLabel_1.setBounds(34, 86, 108, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("\u041B\u0438\u0445\u0432\u0435\u043D \u043F\u0440\u043E\u0446\u0435\u043D\u0442:");
+		lblNewLabel_2.setBounds(34, 121, 96, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(152, 42, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(152, 82, 86, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(152, 118, 86, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(34, 160, 255, 115);
+		contentPane.add(scrollPane);
+		
+		textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+		JLabel lblNewLabel_3 = new JLabel("\u0420\u0435\u0437\u0443\u043B\u0442\u0440\u0430\u0442:");
+		lblNewLabel_3.setBounds(34, 146, 86, 14);
+		contentPane.add(lblNewLabel_3);
+	}
+}
